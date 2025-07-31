@@ -16,6 +16,7 @@ var list = {
   lists.push(list);
   displayList() ;
   console.log(lists);
+  contentOfList.value = null;
 }
 
 
@@ -29,7 +30,7 @@ function displayList() {
 
           <div class="btns d-flex align-items-center justify-content-center gap-2">
            
-            <button class="btn btn-danger text-white d-flex align-items-center justify-content-center column-gap-1" id='deleteBtn' onclick='deleteList()'>Delete<i class="fa-solid fa-trash"></i></button>
+            <button class="btn btn-danger text-white d-flex align-items-center justify-content-center column-gap-1" id='deleteBtn' onclick='deleteList(${iter})'>Delete<i class="fa-solid fa-trash"></i></button>
             <button class="btn btn-warning text-white d-flex align-items-center justify-content-center column-gap-1" onclick='setToUpdate(${iter})'>Edit<i class="fa-solid fa-pen"></i></button>
             <label for="checked" onclick='checkedList(${iter},this)' title="If You Want To Check This Click Here"></label>
             <input type="checkbox" id="checked">
@@ -70,8 +71,8 @@ upadteBtn.addEventListener("click" , update);
 
 
 // delete list
-function deleteList(){
-lists.splice(index,1);
+function deleteList(x){
+lists.splice(x,1);
 displayList();
 }
 
@@ -105,7 +106,14 @@ this.document.getElementById("upParent").classList.remove("d-none");
 
 
 
+document.addEventListener("keydown" , function(event){
 
+if(event.key=="Enter"){
+addList()
+}
+
+
+})
 
 
 
