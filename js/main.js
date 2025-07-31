@@ -4,9 +4,21 @@ var parentOfList = document.querySelector(".parentOfList");
 var upadteBtn = document.getElementById("updateBtn");
 var index ;
 
+// localStorage.clear()
+var lists;
+if(localStorage.getItem("lists") == null){
+lists = [];
+}else{
+lists = JSON.parse(localStorage.getItem("lists"));
+displayList()
+}
 
 
-var lists = [];
+
+
+
+
+
 // add list
 function addList() {
 var list = {
@@ -17,6 +29,7 @@ var list = {
   displayList() ;
   console.log(lists);
   contentOfList.value = null;
+  saveToLocalStorage();
 }
 
 
@@ -32,7 +45,7 @@ function displayList() {
            
             <button class="btn btn-danger text-white d-flex align-items-center justify-content-center column-gap-1" id='deleteBtn' onclick='deleteList(${iter})'>Delete<i class="fa-solid fa-trash"></i></button>
             <button class="btn btn-warning text-white d-flex align-items-center justify-content-center column-gap-1" onclick='setToUpdate(${iter})'>Edit<i class="fa-solid fa-pen"></i></button>
-            <label for="checked" onclick='checkedList(${iter},this)' title="If You Want To Check This Click Here"></label>
+            <label for="checked" onclick='checkedList(this)' title="If You Want To Check This Click Here"></label>
             <input type="checkbox" id="checked">
           </div>
 
@@ -43,6 +56,7 @@ function displayList() {
 
   parentOfList.classList.add("p-2");
   parentOfList.innerHTML = cartona;
+  saveToLocalStorage();
 
 }
 addBtn.addEventListener("click", addList);
@@ -54,6 +68,7 @@ contentOfList.value = lists[x].content;
 addBtn.classList.add('d-none');
 upadteBtn.classList.remove("d-none");
 index =x;
+saveToLocalStorage();
 }
 
 
@@ -64,6 +79,7 @@ lists[index].content = contentOfList.value;
 upadteBtn.classList.add("d-none");
 addBtn.classList.remove("d-none");
 displayList();
+saveToLocalStorage()
 console.log(index);
 }
 
@@ -74,6 +90,7 @@ upadteBtn.addEventListener("click" , update);
 function deleteList(x){
 lists.splice(x,1);
 displayList();
+saveToLocalStorage();
 }
 
 
@@ -83,14 +100,16 @@ displayList();
 
 
 // checked list
-function checkedList(x,elem){
+function checkedList(elem){
 elem.classList.toggle("bg-info");
 var muchOfList = document.querySelectorAll('.list');
 for(let num in muchOfList){
 if(muchOfList[num].children[1].children[2].classList.contains("bg-info")){
 muchOfList[num].classList.replace("bg-black","bg-selected");
+saveToLocalStorage();
 }else{
 muchOfList[num].classList.replace("bg-selected","bg-black");
+saveToLocalStorage();
 }
 }
 }
@@ -113,10 +132,13 @@ addList()
 }
 
 
+
 })
 
 
-
+function saveToLocalStorage(){
+localStorage.setItem("lists",JSON.stringify(lists))
+}
 
 
 
