@@ -1,0 +1,112 @@
+*{
+padding: 0 ;
+margin: 0 ;    
+}
+
+.fa-shake {
+animation-name: fa-shake;
+animation-delay: var(--fa-animation-delay, 0s);
+animation-direction: var(--fa-animation-direction, normal);
+animation-duration: var(--fa-animation-duration, 1s);
+animation-iteration-count: 2;
+animation-timing-function: var(--fa-animation-timing, linear); 
+}
+
+textarea {
+height: 150px;
+border-radius: 10px;
+}
+
+i{
+line-height: 0 !important;
+margin: 0 !important;
+padding: 0 !important;
+}
+
+input[type='checkbox']{
+appearance: none;
+}
+
+label{
+background-color: #fff;
+width: 30px;
+height: 30px;
+border-radius: 50%;
+border: 2px solid #123;
+cursor: pointer;
+}
+
+
+
+.bg-selected{
+background-color: #123;
+}
+
+.bg-black{
+background-color: #000;
+}
+
+
+.spinner {
+  margin: 100px auto;
+  width: 50px;
+  height: 40px;
+  text-align: center;
+  font-size: 10px;
+}
+
+.spinner > div {
+  background-color: #fff;
+  height: 100%;
+  width: 6px;
+  display: inline-block;
+  
+  -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
+  animation: sk-stretchdelay 1.2s infinite ease-in-out;
+}
+
+.spinner .rect2 {
+  -webkit-animation-delay: -1.1s;
+  animation-delay: -1.1s;
+}
+
+.spinner .rect3 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+.spinner .rect4 {
+  -webkit-animation-delay: -0.9s;
+  animation-delay: -0.9s;
+}
+
+.spinner .rect5 {
+  -webkit-animation-delay: -0.8s;
+  animation-delay: -0.8s;
+}
+
+@-webkit-keyframes sk-stretchdelay {
+  0%, 40%, 100% { -webkit-transform: scaleY(0.4) }  
+  20% { -webkit-transform: scaleY(1.0) }
+}
+
+@keyframes sk-stretchdelay {
+  0%, 40%, 100% { 
+    transform: scaleY(0.4);
+    -webkit-transform: scaleY(0.4);
+  }  20% { 
+    transform: scaleY(1.0);
+    -webkit-transform: scaleY(1.0);
+  }
+}
+
+@media screen  and (max-width : 768px){
+.container{
+width: 100% !important;
+}
+.parenOfList{
+width: 100% !important;
+}
+
+}
+
