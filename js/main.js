@@ -120,8 +120,13 @@ window.addEventListener("load",function(){
 this.document.getElementById("upSpinner").classList.remove("d-flex");
 this.document.getElementById("upSpinner").classList.add("d-none");
 this.document.getElementById("upParent").classList.remove("d-none");
-saveToLocalStorage()
+saveToLocalStorage();
 })
+
+
+
+
+// localStorage.clear()
 
 
 
